@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
-
+import { HttpService } from '../http.service';
 @Component({
   selector: 'app-login-register',
   templateUrl: './login-register.component.html',
@@ -9,27 +9,34 @@ import Swal from 'sweetalert2';
 export class LoginRegisterComponent {
   isLogin = true;
   loginData: any = {
-    flag: 'customer',
+    isFarmer: true,
     mobile: '',
     password: ''
   }
   registerData: any = {
-    flag: '',
+    name: '',
+    organization: '',
+    isFarmer: true,
     mobile: '',
     password: '',
     cpassword: ''
   }
 
-  constructor() {
+  constructor(private api: HttpService) {
 
   }
 
   login() {
+
     Swal.fire('Login', 'Done with Login', 'success')
     console.log(this.loginData);
   }
 
   register() {
+    delete this.registerData.cpassword
+    this.api.register(this.registerData).subscribe((res: any) => {
+      console.log(res);
+    })
     console.log(this.registerData);
   }
 }
