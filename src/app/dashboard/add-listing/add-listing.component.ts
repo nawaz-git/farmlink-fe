@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpService } from 'src/app/http.service';
 import { Product } from './product';
 import { ProductListItem } from './product';
@@ -25,7 +26,7 @@ export class AddListingComponent {
     ]
   };
 
-  constructor(private api: HttpService) {
+  constructor(private api: HttpService, private router: Router) {
 
   }
   addProductListItem() {
@@ -46,8 +47,12 @@ export class AddListingComponent {
   addListing() {
     console.log(this.product);
     this.product.farmerId = localStorage.getItem('userId')
-    this.api.addListing(this.product).subscribe((res: any) => {
+    this.api.addProduct(this.product).subscribe((res: any) => {
       console.log(res);
     })
+  }
+
+  allProducts() {
+    this.router.navigate(['dashboard'])
   }
 }

@@ -1,5 +1,8 @@
 <div class="main">
-    <h1><b>Add Listing</b></h1>
+    <div class="header">
+        <h1><b>Add Listing</b></h1>
+        <button (click)="allProducts()">All Products</button>
+    </div>
     <div>
         <input type="file" [(ngModel)]="product.images" name="images" value="rice_image">
     </div>

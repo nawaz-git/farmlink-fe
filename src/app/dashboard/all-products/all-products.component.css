@@ -1,0 +1,41 @@
+.main {
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+}
+
+.product {
+    width: 200px;
+    background-color: rgb(48, 48, 48);
+    color: white;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+
+.desc {
+    margin: 0px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.price-quantity {
+    display: flex;
+    flex-direction: row;
+}
+
+.edit {
+    margin: 5px;
+}

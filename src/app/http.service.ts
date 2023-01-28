@@ -34,7 +34,11 @@ export class HttpService {
     return this.http.post(`${this.API}/users/userlogin`, data)
   }
 
-  addListing(product: Product) {
+  addProduct(product: Product) {
     return this.http.post(`${this.API}/products`, product)
+  }
+
+  getProducts(id: string) {
+    return this.http.get(`${this.API}/products/farmer/${id}`)
   }
 }

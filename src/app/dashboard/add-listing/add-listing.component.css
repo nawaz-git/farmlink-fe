@@ -5,6 +5,12 @@
     flex-direction: column;
 }
 
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .product-item {
     width: 100%;
     display: flex;
@@ -42,4 +48,5 @@ button {
     background-color: var(--primary);
     color: var(--white);
     margin: 10px 0px;
+    cursor: pointer;
 }

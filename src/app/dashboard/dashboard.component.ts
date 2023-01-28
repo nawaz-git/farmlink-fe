@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  isListing = true;
+
+  constructor(private router: Router) {
+
+  }
+
+  allProducts() {
+    this.router.navigate(['dashboard'])
+  }
+
+  manageOrders() {
+    this.router.navigate(['dashboard/manage/order'])
+  }
 }
