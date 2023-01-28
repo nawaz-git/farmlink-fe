@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login-register',
@@ -19,7 +20,12 @@ export class LoginRegisterComponent {
     cpassword: ''
   }
 
+  constructor() {
+
+  }
+
   login() {
+    Swal.fire('Login', 'Done with Login', 'success')
     console.log(this.loginData);
   }
 
