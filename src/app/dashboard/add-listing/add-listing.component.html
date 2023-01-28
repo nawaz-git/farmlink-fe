@@ -1,0 +1,45 @@
+<div class="main">
+    <h1><b>Add Listing</b></h1>
+    <div>
+        <input type="file" [(ngModel)]="product.images" name="images" value="rice_image">
+    </div>
+    <div>
+        <input type="text" [(ngModel)]="product.name" placeholder="Product Name" name="name" value="Ultima Rice"><br>
+    </div>
+    <div>
+        <select [(ngModel)]="product.category">
+            <option value="" disabled selected>Select Category</option>
+            <option value="Fruits">Fruits</option>
+            <option value="Vegetables">Vegetables</option>
+            <option value="meats">Meats</option>
+            <option value="dairy">Dairy</option>
+            <option value="grains">Grains</option>
+            <option value="nuts">Nuts</option>
+            <option value="spices">Spices</option>
+            <option value="herbs">Herbs</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    <div>
+        <input type="textarea" [(ngModel)]="product.description" placeholder="Description" name="description"
+            value="Bullet rice"><br>
+    </div>
+    <label>Product List:</label>
+    <div class="productList">
+        <div class="product-item" *ngFor="let item of product.productList;let index">
+            <input type="number" [(ngModel)]="item.weight" placeholder="weight" name="weight">
+            <select [(ngModel)]="item.unit">
+                <option value="" disabled>Select Unit</option>
+                <option value="kg">KG</option>
+                <option value="g">G</option>
+                <option value="mg">MG</option>
+                <option value="lb">LB</option>
+                <option value="oz">OZ</option>
+            </select>
+            <input type="number" [(ngModel)]="item.price" name="price" placeholder="price">
+            <button (click)="deleteProductListItem(index)">Delete</button>
+        </div>
+        <button (click)="addProductListItem()">Add Product</button>
+    </div>
+    <button (click)="addListing()">Add Listing</button>
+</div>

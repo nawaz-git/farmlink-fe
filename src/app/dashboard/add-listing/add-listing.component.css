@@ -1,0 +1,45 @@
+.main {
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+input {
+    margin: 10px 5px;
+    height: 36px;
+    width: 100%;
+    font-size: 13px;
+    padding: 0 12px 0 12px;
+    color: #333;
+    border-radius: 0;
+    background-color: transparent;
+    border: solid 1px #c4c4c4;
+    transition: border .5s;
+}
+
+select {
+    margin: 10px 5px;
+    height: 36px;
+    width: 100%;
+    font-size: 13px;
+    padding: 0 12px 0 12px;
+    color: #333;
+    border-radius: 0;
+    background-color: transparent;
+    border: solid 1px #c4c4c4;
+    transition: border .5s;
+}
+
+button {
+    padding: 10px 40px;
+    background-color: var(--primary);
+    color: var(--white);
+    margin: 10px 0px;
+}
