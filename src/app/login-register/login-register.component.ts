@@ -20,6 +20,7 @@ export class LoginRegisterComponent {
     organization: '',
     isFarmer: true,
     mobile: '',
+    address: '',
     password: '',
     cpassword: ''
   }
