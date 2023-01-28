@@ -3,7 +3,7 @@ export interface Product {
     images: string[];
     description: string;
     category: string;
-    farmerId: string;
+    farmerId: string | null;
     productList: ProductListItem[];
 }
 

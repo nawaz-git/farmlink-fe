@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Product } from './dashboard/add-listing/product';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,5 +32,9 @@ export class HttpService {
     isFarmer: boolean
   }) {
     return this.http.post(`${this.API}/users/userlogin`, data)
+  }
+
+  addListing(product: Product) {
+    return this.http.post(`${this.API}/products`, product)
   }
 }

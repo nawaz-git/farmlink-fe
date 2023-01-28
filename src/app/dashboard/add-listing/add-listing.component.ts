@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpService } from 'src/app/http.service';
 import { Product } from './product';
 import { ProductListItem } from './product';
 
@@ -24,6 +25,9 @@ export class AddListingComponent {
     ]
   };
 
+  constructor(private api: HttpService) {
+
+  }
   addProductListItem() {
     let productList: ProductListItem = {
       price: 0,
@@ -38,8 +42,12 @@ export class AddListingComponent {
     console.log(index);
     this.product.productList.splice(index, 1);
   }
+
   addListing() {
     console.log(this.product);
-
+    this.product.farmerId = localStorage.getItem('userId')
+    this.api.addListing(this.product).subscribe((res: any) => {
+      console.log(res);
+    })
   }
 }
