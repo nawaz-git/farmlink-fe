@@ -9,13 +9,13 @@
     </div>
     <div class="login" *ngIf="isLogin">
         <label>Login as:</label>
-        <select>
-            <option>Farmer</option>
-            <option>Customer</option>
+        <select [(ngModel)]="loginData.flag">
+            <option value="farmer">Farmer</option>
+            <option value="customer">Customer</option>
         </select>
-        <input type="text" placeholder="Mobile Number">
-        <input type="password" placeholder="Password">
-        <button>Login</button>
+        <input type="text" placeholder="Mobile Number" [(ngModel)]="loginData.mobile">
+        <input type="password" placeholder="Password" [(ngModel)]="loginData.password">
+        <button (click)="login()">Login</button>
     </div>
     <div class="register" *ngIf="!isLogin">
         <label>Register as:</label>
@@ -26,6 +26,6 @@
         <input type="text" placeholder="Mobile Number">
         <input type="password" placeholder="Password">
         <input type="password" placeholder="Confirm Password">
-        <button>Register</button>
+        <button (click)="register()">Register</button>
     </div>
 </div>

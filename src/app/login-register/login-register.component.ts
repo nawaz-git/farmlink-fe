@@ -7,5 +7,23 @@ import { Component } from '@angular/core';
 })
 export class LoginRegisterComponent {
   isLogin = true;
-  
+  loginData: any = {
+    flag: 'customer',
+    mobile: '',
+    password: ''
+  }
+  registerData: any = {
+    flag: '',
+    mobile: '',
+    password: '',
+    cpassword: ''
+  }
+
+  login() {
+    console.log(this.loginData);
+  }
+
+  register() {
+    console.log(this.registerData);
+  }
 }
