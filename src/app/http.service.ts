@@ -62,4 +62,8 @@ export class HttpService {
   getProducts(id: string) {
     return this.http.get(`${this.API}/products/farmer/${id}`)
   }
+
+  getProductsbyFilter(filter: any) {
+    return this.http.post(`${this.API}/products/filter`, filter)
+  }
 }

@@ -14,7 +14,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     children: [
-      { path: '', component: AllProductsComponent },
+      { path: '', component: AllProductsComponent, pathMatch: 'full', canActivate: [AuthGuard] },
       { path: 'product/add', component: AddListingComponent },
       { path: 'product/edit/:product', component: EditProductComponent },
       { path: 'manage/order', component: ManageOrdersComponent }
