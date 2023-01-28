@@ -13,6 +13,7 @@ export class LoginRegisterComponent {
     mobile: '',
     password: ''
   }
+
   registerData: any = {
     name: '',
     organization: '',
@@ -27,9 +28,17 @@ export class LoginRegisterComponent {
   }
 
   login() {
-
-    Swal.fire('Login', 'Done with Login', 'success')
-    console.log(this.loginData);
+    this.api.login(this.loginData).subscribe((res: any) => {
+      if (res.status == 200) {
+        localStorage.setItem('mobile', this.loginData.mobile)
+        localStorage.setItem('token', res.token)
+        localStorage.setItem('userId', res.userId)
+        Swal.fire('Login', 'Successfully Logged In', 'success')
+      }
+    }, err => {
+      console.log(err);
+      Swal.fire('Error', err.error.message, 'error')
+    })
   }
 
   register() {

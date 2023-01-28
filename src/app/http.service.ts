@@ -24,4 +24,12 @@ export class HttpService {
     return this.http.post(`${this.API}/users`, data)
   }
 
+
+  login(data: {
+    mobile: string,
+    password: string,
+    isFarmer: boolean
+  }) {
+    return this.http.post(`${this.API}/users/userlogin`, data)
+  }
 }
