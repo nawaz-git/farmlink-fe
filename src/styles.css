@@ -4,6 +4,8 @@
     --third: black;
     --heading: black;
     --text: black;
+    --text-light: white;
+    --white: rgb(211, 211, 211);
 }
 
 * {

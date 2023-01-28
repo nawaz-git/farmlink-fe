@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-register',
   templateUrl: './login-register.component.html',
@@ -23,7 +24,7 @@ export class LoginRegisterComponent {
     cpassword: ''
   }
 
-  constructor(private api: HttpService) {
+  constructor(private api: HttpService, private router: Router) {
 
   }
 
@@ -34,6 +35,21 @@ export class LoginRegisterComponent {
         localStorage.setItem('token', res.token)
         localStorage.setItem('userId', res.userId)
         Swal.fire('Login', 'Successfully Logged In', 'success')
+        console.log(this.loginData.isFarmer);
+        if (this.loginData.isFarmer === 'false') {
+          this.loginData.isFarmer = false
+        }
+        if (this.loginData.isFarmer) {
+          localStorage.setItem('isFarmer', 'true')
+          this.router.navigate(['dashboard'])
+        } else {
+          console.log(this.loginData);
+          localStorage.setItem('isFarmer', 'false')
+          this.router.navigate([''])
+        }
+        setTimeout(() => {
+          Swal.close()
+        }, 1000)
       }
     }, err => {
       console.log(err);

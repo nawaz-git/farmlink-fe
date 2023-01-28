@@ -8,13 +8,17 @@ import { FormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { AddListingComponent } from './dashboard/add-listing/add-listing.component';
+import { ManageOrdersComponent } from './dashboard/manage-orders/manage-orders.component'
 @NgModule({
   declarations: [
     AppComponent,
     LoginRegisterComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    AddListingComponent,
+    ManageOrdersComponent
   ],
   imports: [
     BrowserModule,
