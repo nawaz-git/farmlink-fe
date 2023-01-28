@@ -1,9 +1,10 @@
 <div class="main">
     <div class="header">
-        <h1><b>Add Listing</b></h1>
+        <h1><b>Edit Listing</b></h1>
         <button (click)="allProducts()">All Products</button>
     </div>
     <div>
+        <img [src]="product.images[0]" width="200" *ngIf="product.images[0]">
         <input type="file" [(ngModel)]="product.images[0]" (change)="onFileChange($event)">
     </div>
     <div>
@@ -27,7 +28,6 @@
         <input type="textarea" [(ngModel)]="product.description" placeholder="Description" name="description"
             value="Bullet rice"><br>
     </div>
-    <label>Product List:</label>
     <div class="productList">
         <div class="product-item" *ngFor="let item of product.productList;let index">
             <input type="number" [(ngModel)]="item.weight" placeholder="weight" name="weight">
@@ -44,5 +44,5 @@
         </div>
         <button (click)="addProductListItem()">Add Product</button>
     </div>
-    <button (click)="addListing()">Add Listing</button>
+    <button (click)="addListing()">Update Listing</button>
 </div>

@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { HttpService } from 'src/app/http.service';
-import { Product } from './product';
-import { ProductListItem } from './product';
+import { Product, ProductListItem } from '../add-listing/product';
 import Swal from 'sweetalert2'
+import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
-  selector: 'app-add-listing',
-  templateUrl: './add-listing.component.html',
-  styleUrls: ['./add-listing.component.css']
+  selector: 'app-edit-product',
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.css']
 })
-export class AddListingComponent {
+export class EditProductComponent {
   selectedFile: any;
-  product: Product = {
+  product: any = {
     name: '',
     category: '',
     description: '',
@@ -27,30 +27,17 @@ export class AddListingComponent {
     ]
   };
 
-  constructor(private api: HttpService, private router: Router) {
-
+  constructor(private api: HttpService, private router: Router, private route: ActivatedRoute) {
+    this.product = this.route.snapshot.paramMap.get('product')
+    this.product = JSON.parse(this.product)
+    console.log(this.product);
   }
-  addProductListItem() {
-    let productList: ProductListItem = {
-      price: 0,
-      quantity: 0,
-      unit: '',
-      weight: 0
-    }
-    this.product.productList.push(productList);
-  }
-
-  deleteProductListItem(index: any) {
-    console.log(index);
-    this.product.productList.splice(index, 1);
-  }
-
   async addListing() {
     this.product.farmerId = localStorage.getItem('userId')
     if (this.selectedFile) {
       await this.upload()
     } else {
-      this.api.addProduct(this.product).subscribe((res: any) => {
+      this.api.editProduct(this.product).subscribe((res: any) => {
         Swal.fire('Added', 'Product Added Successfully', 'success')
       }, err => {
         Swal.fire('Error', 'Something went Wrong', 'error')
@@ -71,12 +58,27 @@ export class AddListingComponent {
     this.api.uploadImage(this.selectedFile)
       .subscribe((response: any) => {
         this.product.images[0] = response.data.display_url
-        this.api.addProduct(this.product).subscribe((res: any) => {
+        this.api.editProduct(this.product).subscribe((res: any) => {
           Swal.fire('Added', 'Product Added Successfully', 'success')
         }, err => {
           Swal.fire('Error', 'Something went Wrong', 'error')
         })
         console.log(this.product);
       });
+  }
+
+  addProductListItem() {
+    let productList: ProductListItem = {
+      price: 0,
+      quantity: 0,
+      unit: '',
+      weight: 0
+    }
+    this.product.productList.push(productList);
+  }
+
+  deleteProductListItem(index: any) {
+    console.log(index);
+    this.product.productList.splice(index, 1);
   }
 }

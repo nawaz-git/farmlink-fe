@@ -12,7 +12,13 @@ export class HttpService {
     'token': `${localStorage.getItem('token')}`
   });
 
+
+  imgbbheaders: any = new HttpHeaders({
+    'Content-Type': 'multipart/form-data',
+  });
+
   API = environment.API_URL;
+  KEY = environment.IMGBBKEY;
   constructor(private http: HttpClient) { }
 
   register(data: {
@@ -34,8 +40,23 @@ export class HttpService {
     return this.http.post(`${this.API}/users/userlogin`, data)
   }
 
+  uploadImage(image: File) {
+    const formData = new FormData();
+    formData.append('image', image);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'multipart/form-data'
+    });
+
+    return this.http.post(`https://api.imgbb.com/1/upload?key=${this.KEY}`, formData, this.imgbbheaders);
+  }
+
   addProduct(product: Product) {
     return this.http.post(`${this.API}/products`, product)
+  }
+
+  editProduct(product: any) {
+    return this.http.put(`${this.API}/products/${product._id}`, product)
   }
 
   getProducts(id: string) {

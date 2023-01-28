@@ -17,11 +17,17 @@ export class AllProductsComponent {
     let farmerId: any = localStorage.getItem('userId')
     this.api.getProducts(farmerId).subscribe((res: any) => {
       this.products = res
+      console.log(this.products);
+
     })
   }
 
   addProduct() {
     this.router.navigate(['dashboard/product/add'])
+  }
+
+  edit(product: any) {
+    this.router.navigate(['dashboard/product/edit', JSON.stringify(product)])
   }
 }
 

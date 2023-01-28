@@ -12,7 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddListingComponent } from './dashboard/add-listing/add-listing.component';
 import { ManageOrdersComponent } from './dashboard/manage-orders/manage-orders.component';
-import { AllProductsComponent } from './dashboard/all-products/all-products.component'
+import { AllProductsComponent } from './dashboard/all-products/all-products.component';
+import { EditProductComponent } from './dashboard/edit-product/edit-product.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { AllProductsComponent } from './dashboard/all-products/all-products.comp
     HomeComponent,
     AddListingComponent,
     ManageOrdersComponent,
-    AllProductsComponent
+    AllProductsComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
