@@ -48,4 +48,12 @@ export class LoginRegisterComponent {
     })
     console.log(this.registerData);
   }
+
+  registerFarmerToggle() {
+    if (this.registerData.isFarmer === 'true') {
+      this.registerData.isFarmer = true
+    } else {
+      this.registerData.isFarmer = false
+    }
+  }
 }

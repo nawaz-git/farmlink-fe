@@ -1,33 +1,36 @@
-<div class="main">
-    <div class="switcher">
-        <div class="login-switch" (click)="isLogin = true ">
-            Login
+<div class="container">
+    <div class="main">
+        <div class="switcher">
+            <div class="login-switch" (click)="isLogin = true ">
+                Login
+            </div>
+            <div class="signup-switch" (click)="isLogin = false ">
+                Register
+            </div>
         </div>
-        <div class="signup-switch" (click)="isLogin = false ">
-            Register
+        <div class="login" *ngIf="isLogin">
+            <label>Login as:</label>
+            <select [(ngModel)]="loginData.isFarmer">
+                <option [value]="true">Farmer</option>
+                <option [value]="false">Customer</option>
+            </select>
+            <input type="text" placeholder="Mobile Number" [(ngModel)]="loginData.mobile">
+            <input type="password" placeholder="Password" [(ngModel)]="loginData.password">
+            <button (click)="login()">Login</button>
         </div>
-    </div>
-    <div class="login" *ngIf="isLogin">
-        <label>Login as:</label>
-        <select [(ngModel)]="loginData.isFarmer">
-            <option [value]="true">Farmer</option>
-            <option [value]="false">Customer</option>
-        </select>
-        <input type="text" placeholder="Mobile Number" [(ngModel)]="loginData.mobile">
-        <input type="password" placeholder="Password" [(ngModel)]="loginData.password">
-        <button (click)="login()">Login</button>
-    </div>
-    <div class="register" *ngIf="!isLogin">
-        <label>Register as:</label>
-        <select [(ngModel)]="registerData.isFarmer">
-            <option [value]="true">Farmer</option>
-            <option [value]="false">Customer</option>
-        </select>
-        <input type="text" placeholder="Organization" [(ngModel)]="registerData.organization">
-        <input type="text" placeholder="Name" [(ngModel)]="registerData.name">
-        <input type="text" placeholder="Mobile Number" [(ngModel)]="registerData.mobile">
-        <input type="password" placeholder="Password" [(ngModel)]="registerData.password">
-        <input type="password" placeholder="Confirm Password" [(ngModel)]="registerData.cpassword">
-        <button (click)="register()">Register</button>
+        <div class="register" *ngIf="!isLogin">
+            <label>Register as:</label>
+            <select [(ngModel)]="registerData.isFarmer" (change)="registerFarmerToggle()">
+                <option [value]='true'>Farmer</option>
+                <option [value]='false'>Customer</option>
+            </select>
+            <input type="text" placeholder="Organization" [(ngModel)]="registerData.organization"
+                *ngIf="registerData.isFarmer">
+            <input type="text" placeholder="Name" [(ngModel)]="registerData.name">
+            <input type="text" placeholder="Mobile Number" [(ngModel)]="registerData.mobile">
+            <input type="password" placeholder="Password" [(ngModel)]="registerData.password">
+            <input type="password" placeholder="Confirm Password" [(ngModel)]="registerData.cpassword">
+            <button (click)="register()">Register</button>
+        </div>
     </div>
 </div>
