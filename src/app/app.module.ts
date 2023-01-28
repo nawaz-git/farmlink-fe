@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatIconModule } from '@angular/material/icon'
+import { MatExpansionModule } from '@angular/material/expansion'
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { FormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
@@ -31,6 +32,8 @@ import { EditProductComponent } from './dashboard/edit-product/edit-product.comp
     FormsModule,
     HttpClientModule,
     MatIconModule,
+    MatExpansionModule,
+    BrowserAnimationsModule,
     SweetAlert2Module.forRoot()
   ],
   providers: [],
