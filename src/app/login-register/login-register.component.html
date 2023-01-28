@@ -1,0 +1,31 @@
+<div class="main">
+    <div class="switcher">
+        <div class="login-switch" (click)="isLogin = true ">
+            Login
+        </div>
+        <div class="signup-switch" (click)="isLogin = false ">
+            Register
+        </div>
+    </div>
+    <div class="login" *ngIf="isLogin">
+        <label>Login as:</label>
+        <select>
+            <option>Farmer</option>
+            <option>Customer</option>
+        </select>
+        <input type="text" placeholder="Mobile Number">
+        <input type="password" placeholder="Password">
+        <button>Login</button>
+    </div>
+    <div class="register" *ngIf="!isLogin">
+        <label>Register as:</label>
+        <select>
+            <option>Farmer</option>
+            <option>Customer</option>
+        </select>
+        <input type="text" placeholder="Mobile Number">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Confirm Password">
+        <button>Register</button>
+    </div>
+</div>
