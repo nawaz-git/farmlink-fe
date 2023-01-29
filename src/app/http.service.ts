@@ -2,10 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Product } from './dashboard/add-listing/product';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
+  cart: any = new BehaviorSubject([])
+
   reqHeaders: any = new HttpHeaders({
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -69,5 +72,9 @@ export class HttpService {
 
   getBrandNames() {
     return this.http.get(`${this.API}/products/brands`)
+  }
+
+  createOrder(data: any) {
+    return this.http.post(`${this.API}/orders`, data)
   }
 }

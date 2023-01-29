@@ -8,19 +8,17 @@ import { HttpService } from '../http.service';
 })
 export class HomeComponent {
   products: any;
-  filter: any
-    = {
-      // categories: [],
-      // price: '',
-      // weight: [
-      //   10,
-      //   25
-      // ],
-      // farmerId: ''
-    }
+  filter: any = {
+    // categories: [],
+    // price: '',
+    // weight: [
+    //   10,
+    //   25
+    // ],
+    // farmerId: ''
+  }
 
   brandNames: any;
-
 
   categories: any = {
     Fruit: false,
@@ -30,7 +28,8 @@ export class HomeComponent {
     Other: false
   }
 
-
+  cart: any = [];
+  isCart = false;
   constructor(private api: HttpService) {
     this.getProducts()
     this.getBrandNames()
@@ -83,6 +82,31 @@ export class HomeComponent {
     this.api.getBrandNames().subscribe((res: any) => {
       this.brandNames = res
       console.log(this.brandNames);
+    })
+  }
+
+
+  addtoCart(product: any) {
+
+    let productData: any = {
+      name: product.name,
+      _id: product._id,
+      weight: Number(product.current.split('-')[1].replace(/[ KG]/gi, '')),
+      price: Number(product.current.split('-')[0].split('').join('').replace(/[₹]/gi, '')),
+      units: "kg",
+      quantity: 1,
+      farmerId: product.farmerId
+    }
+
+    this.cart.push(productData)
+  }
+
+  async placeOrder() {
+    let data: any = await { products: [...this.cart] }
+    data.userId = localStorage.getItem('userId')
+    console.log(data);
+    this.api.createOrder(data).subscribe((res: any) => {
+      console.log(res);
     })
   }
 }
