@@ -8,6 +8,7 @@ import { EditProductComponent } from './dashboard/edit-product/edit-product.comp
 import { ManageOrdersComponent } from './dashboard/manage-orders/manage-orders.component';
 import { CartComponent } from './home/cart/cart.component';
 import { HomeComponent } from './home/home.component';
+import { OrdersComponent } from './home/orders/orders.component';
 import { ProductsComponent } from './home/products/products.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 
@@ -15,8 +16,9 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      { path: '', component: ProductsComponent, pathMatch: 'full' },
-      { path: 'customer/cart', component: CartComponent }
+      { path: '', component: ProductsComponent },
+      { path: 'cart', component: CartComponent },
+      { path: 'orders', component: OrdersComponent }
     ],
     component: HomeComponent, canActivate: [AuthGuard]
   },

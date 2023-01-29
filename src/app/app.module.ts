@@ -20,7 +20,8 @@ import { ManageOrdersComponent } from './dashboard/manage-orders/manage-orders.c
 import { AllProductsComponent } from './dashboard/all-products/all-products.component';
 import { EditProductComponent } from './dashboard/edit-product/edit-product.component';
 import { CartComponent } from './home/cart/cart.component';
-import { ProductsComponent } from './home/products/products.component'
+import { ProductsComponent } from './home/products/products.component';
+import { OrdersComponent } from './home/orders/orders.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { ProductsComponent } from './home/products/products.component'
     AllProductsComponent,
     EditProductComponent,
     CartComponent,
-    ProductsComponent
+    ProductsComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

@@ -77,4 +77,8 @@ export class HttpService {
   createOrder(data: any) {
     return this.http.post(`${this.API}/orders`, data)
   }
+
+  getOrdersCustomer(data: any) {
+    return this.http.post(`${this.API}/orders/filter`, data)
+  }
 }
