@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpService } from '../http.service';
+import { HttpService } from 'src/app/http.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.css']
 })
-export class HomeComponent {
+export class ProductsComponent {
   products: any;
   filter: any = {
     // categories: [],
@@ -102,9 +102,4 @@ export class HomeComponent {
     console.log(this.api.cart.value);
 
   }
-
-  cart() {
-    this.router.navigate(['/customer/cart'])
-  }
-
 }

@@ -1,0 +1,26 @@
+<div class="categories"></div>
+<div class="products">
+    <div class="product" *ngFor="let product of products">
+        <img *ngIf="product.images" [src]="product.images[0]" width="200">
+        <img *ngIf="!product.images" src="../../assets/rice.webp" width="200">
+        <div class="box">
+            <div class="desc">
+                <div class="name">
+                    <span>{{product.name}}</span>
+                </div>
+                <div class="price-quantity">
+                    <select [(ngModel)]="product.current">
+                        <option *ngFor="let subproduct of product.productList">
+                            ₹{{subproduct.price}} -
+                            {{subproduct.weight}} KG</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class=" edit">
+                <button><mat-icon (click)="addtoCart(product)">add</mat-icon></button>
+            </div>
+        </div>
+
+    </div>
+</div>

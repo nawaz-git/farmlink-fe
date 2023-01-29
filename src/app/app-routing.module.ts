@@ -6,11 +6,20 @@ import { AllProductsComponent } from './dashboard/all-products/all-products.comp
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditProductComponent } from './dashboard/edit-product/edit-product.component';
 import { ManageOrdersComponent } from './dashboard/manage-orders/manage-orders.component';
+import { CartComponent } from './home/cart/cart.component';
 import { HomeComponent } from './home/home.component';
+import { ProductsComponent } from './home/products/products.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  {
+    path: '',
+    children: [
+      { path: '', component: ProductsComponent, pathMatch: 'full' },
+      { path: 'customer/cart', component: CartComponent }
+    ],
+    component: HomeComponent, canActivate: [AuthGuard]
+  },
   {
     path: 'dashboard',
     children: [

@@ -1,0 +1,44 @@
+.cart {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.cart-left {
+    width: 70%;
+}
+
+.cart-right {
+    width: 30%;
+    height: 300px;
+    padding: 20px;
+}
+
+.c-products {
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.c-product {
+    background-color: red;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 20px 10px;
+}
+
+.c-image {
+    width: 20%;
+    overflow: hidden;
+}
+
+.c-desc {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.c-quantity {
+    width: 15%;
+}

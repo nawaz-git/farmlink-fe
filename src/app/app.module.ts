@@ -18,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddListingComponent } from './dashboard/add-listing/add-listing.component';
 import { ManageOrdersComponent } from './dashboard/manage-orders/manage-orders.component';
 import { AllProductsComponent } from './dashboard/all-products/all-products.component';
-import { EditProductComponent } from './dashboard/edit-product/edit-product.component'
+import { EditProductComponent } from './dashboard/edit-product/edit-product.component';
+import { CartComponent } from './home/cart/cart.component';
+import { ProductsComponent } from './home/products/products.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,9 @@ import { EditProductComponent } from './dashboard/edit-product/edit-product.comp
     AddListingComponent,
     ManageOrdersComponent,
     AllProductsComponent,
-    EditProductComponent
+    EditProductComponent,
+    CartComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
