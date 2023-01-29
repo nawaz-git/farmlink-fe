@@ -7,8 +7,9 @@ import { HttpService } from 'src/app/http.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-
+  total = 0;
   constructor(public api: HttpService) {
+    this.calculate()
     console.log(this.api.cart.value);
   }
 
@@ -19,5 +20,9 @@ export class CartComponent {
     this.api.createOrder(data).subscribe((res: any) => {
       console.log(res);
     })
+  }
+
+  calculate() {
+    this.total = this.api.cart.value.reduce((acc: any, product: any) => acc + (product.price * product.quantity), 0)
   }
 }
