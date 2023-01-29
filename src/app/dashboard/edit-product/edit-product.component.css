@@ -50,3 +50,16 @@ button {
     margin: 10px 0px;
     cursor: pointer;
 }
+
+button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 9.79692px 38px;
+    gap: 10px;
+    background: var(--third);
+    border-radius: 8.61834px;
+    color: white;
+    border: none;
+    outline: none;
+}

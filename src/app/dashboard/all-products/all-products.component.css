@@ -15,11 +15,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 12px;
+    padding: 15px;
     gap: 12px;
-
-    width: 239.04px;
-    height: 289.52px;
+    margin: 20px;
+    /* width: 239.04px; */
+    /* height: 289.52px; */
 
     /* White */
 
@@ -46,9 +46,50 @@
 
 .price-quantity {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .edit {
     margin: 5px;
+}
+
+button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 9.79692px 38px;
+    gap: 10px;
+    background: #48BE00;
+    border-radius: 8.61834px;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+.sub-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.name {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.edit button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px 20px;
+    gap: 2.8px;
+    width: 111.99px;
+    height: 35px;
+    cursor: pointer;
+    border: 1.39956px solid #2F3941;
+    border-radius: 8.61834px;
+    background-color: transparent;
+    cursor: pointer;
+    color: black;
+    justify-content: center;
+    align-items: center;
 }

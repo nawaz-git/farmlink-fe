@@ -22,15 +22,14 @@
                         <span>{{product.name}}</span>
                     </div>
                     <div class="price-quantity">
-                        <span>{{product.productList[0].weight}} KG</span>
-                        <span>₹{{product.productList[0].price}}</span>
+                        <span>Weight {{product.productList[0].weight}} KG</span>
+                        <span>Price ₹{{product.productList[0].price}}</span>
                     </div>
                 </div>
-                <div class="edit">
-                    <button (click)="edit(product)"><mat-icon>edit</mat-icon></button>
-                </div>
             </div>
-
+            <div class="edit">
+                <button (click)="edit(product)"><mat-icon>edit</mat-icon>Edit</button>
+            </div>
         </div>
     </div>
 </div>

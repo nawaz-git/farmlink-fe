@@ -19,4 +19,16 @@ export class DashboardComponent {
   manageOrders() {
     this.router.navigate(['dashboard/manage/order'])
   }
+
+  myaccount() {
+    this.router.navigate(['dashboard'])
+  }
+
+  home() {
+    this.router.navigate([''])
+  }
+  logout() {
+    localStorage.clear()
+    window.location.reload()
+  }
 }
