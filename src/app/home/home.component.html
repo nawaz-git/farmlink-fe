@@ -71,7 +71,8 @@
                             Brands
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <!-- Content -->
+                    <mat-checkbox value="Fruits" (change)="brandChange()" *ngFor="let brand of brandNames"
+                        [(ngModel)]="brand.value">{{brand.organization}}</mat-checkbox><br />
                 </mat-expansion-panel>
 
             </mat-accordion>

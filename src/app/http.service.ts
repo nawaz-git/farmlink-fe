@@ -66,4 +66,8 @@ export class HttpService {
   getProductsbyFilter(filter: any) {
     return this.http.post(`${this.API}/products/filter`, filter)
   }
+
+  getBrandNames() {
+    return this.http.get(`${this.API}/products/brands`)
+  }
 }

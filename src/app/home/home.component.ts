@@ -8,15 +8,19 @@ import { HttpService } from '../http.service';
 })
 export class HomeComponent {
   products: any;
-  filter: any = {
-    // categories: [],
-    // price: '',
-    // weight: [
-    //   10,
-    //   25
-    // ],
-    // farmerId: ''
-  }
+  filter: any
+    = {
+      // categories: [],
+      // price: '',
+      // weight: [
+      //   10,
+      //   25
+      // ],
+      // farmerId: ''
+    }
+
+  brandNames: any;
+
 
   categories: any = {
     Fruit: false,
@@ -29,6 +33,7 @@ export class HomeComponent {
 
   constructor(private api: HttpService) {
     this.getProducts()
+    this.getBrandNames()
   }
 
   getProducts() {
@@ -51,8 +56,33 @@ export class HomeComponent {
         selectedCategories.push(category);
       }
     }
-    this.filter.category = selectedCategories
+    this.filter.categories = selectedCategories
+    if (this.filter.categories && this.filter.categories.length == 0) {
+      delete this.filter.categories
+    }
     this.getProducts()
   }
 
+
+  brandChange() {
+    let selectedBrands: any = [];
+    for (let brand in this.brandNames) {
+      if (this.brandNames[brand].value) {
+        selectedBrands.push(this.brandNames[brand]._id)
+      }
+    }
+    this.filter.farmerId = selectedBrands
+    if (this.filter.farmerId && this.filter.farmerId.length == 0) {
+      delete this.filter.farmerId
+    }
+    console.log(this.filter);
+    this.getProducts()
+  }
+
+  getBrandNames() {
+    this.api.getBrandNames().subscribe((res: any) => {
+      this.brandNames = res
+      console.log(this.brandNames);
+    })
+  }
 }
