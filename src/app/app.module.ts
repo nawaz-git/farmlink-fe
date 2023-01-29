@@ -8,6 +8,10 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatExpansionModule } from '@angular/material/expansion'
 import { MatRadioModule } from '@angular/material/radio'
 import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { FormsModule } from '@angular/forms';
@@ -21,7 +25,8 @@ import { AllProductsComponent } from './dashboard/all-products/all-products.comp
 import { EditProductComponent } from './dashboard/edit-product/edit-product.component';
 import { CartComponent } from './home/cart/cart.component';
 import { ProductsComponent } from './home/products/products.component';
-import { OrdersComponent } from './home/orders/orders.component'
+import { OrdersComponent } from './home/orders/orders.component';
+import { DialogComponent } from './dashboard/dialog/dialog.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +39,9 @@ import { OrdersComponent } from './home/orders/orders.component'
     EditProductComponent,
     CartComponent,
     ProductsComponent,
-    OrdersComponent
+    OrdersComponent,
+    DialogComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -47,7 +54,10 @@ import { OrdersComponent } from './home/orders/orders.component'
     MatExpansionModule,
     MatRadioModule,
     MatCheckboxModule,
-
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
     SweetAlert2Module.forRoot()
   ],
   providers: [],

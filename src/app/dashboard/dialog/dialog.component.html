@@ -1,0 +1,9 @@
+<div class="main">
+    <h3>Scheduling Pickup</h3>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matIconSuffix [for]="picker">
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <button>Schedule Pickup</button>
+</div>

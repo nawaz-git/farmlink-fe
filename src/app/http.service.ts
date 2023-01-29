@@ -81,4 +81,12 @@ export class HttpService {
   getOrdersCustomer(data: any) {
     return this.http.post(`${this.API}/orders/filter`, data)
   }
+
+  getOrdersFarmer(id: string) {
+    return this.http.get(`${this.API}/orders/${id}/farmer`)
+  }
+
+  updateOrderFarmer(data: any, id: string) {
+    return this.http.put(`${this.API}/orders/${id}`, data)
+  }
 }

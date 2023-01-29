@@ -1,1 +1,19 @@
-<p>manage-orders works!</p>
+<div class="orders">
+    <h1>My Orders</h1>
+    <div class="products">
+        <div class="order" *ngFor="let order of orders">
+            <div class="img">
+                <img src="">
+            </div>
+            <div class="data">
+                {{order.productId.name}}<br />
+                {{order.weight}} kg x {{order.quantity}}<br />
+                ₹ {{order.price}}<br />
+            </div>
+            <div class="action">
+                <button (click)="schedule()">Schedule</button>
+                <button (click)="cancel(order._id)">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
