@@ -13,73 +13,8 @@
             <mat-icon>person</mat-icon>My Account
         </div>
     </div>
-    <div class="container" *ngIf="!isCart">
-        <div class="left">
-            <mat-accordion>
-                <mat-expansion-panel [expanded]="true">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            Prices
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <mat-radio-group aria-label="Select an option" (change)="filterChanged()"
-                        [(ngModel)]="filter.price">
-                        <mat-radio-button value="500"> Below 500</mat-radio-button><br />
-                        <mat-radio-button value="700"> 700</mat-radio-button><br />
-                        <mat-radio-button value="1200"> 1200</mat-radio-button><br />
-                        <mat-radio-button value="2000"> 2000</mat-radio-button><br />
-                    </mat-radio-group>
-                </mat-expansion-panel>
-
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            Quantity
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <mat-radio-group aria-label="Select an option" (change)="filterChanged()"
-                        [(ngModel)]="filter.weight">
-                        <mat-radio-button [value]="[0,0.5]"> Below 0.5 kg </mat-radio-button><br />
-                        <mat-radio-button [value]="[1,5]"> 1 kg - 5 kg</mat-radio-button><br />
-                        <mat-radio-button [value]="[5,10]"> 5 kg - 10 kg</mat-radio-button><br />
-                        <mat-radio-button [value]="[10,15]"> 10 kg - 15 kg</mat-radio-button><br />
-                        <mat-radio-button [value]="[15,100]"> Above 15 kg</mat-radio-button><br />
-                    </mat-radio-group>
-                </mat-expansion-panel>
-
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            Categories
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <mat-checkbox value="Fruits" (change)="categoryChange()"
-                        [(ngModel)]="categories.Fruits">Fruits</mat-checkbox><br />
-                    <mat-checkbox value="Vegetables" [(ngModel)]="categories.Vegetables"
-                        (change)="categoryChange()">Vegetables</mat-checkbox><br />
-                    <mat-checkbox value="Grains" [(ngModel)]="categories.Grains"
-                        (change)="categoryChange()">Grains</mat-checkbox><br />
-                    <mat-checkbox value="Spices" [(ngModel)]="categories.Spices"
-                        (change)="categoryChange()">Spices</mat-checkbox><br />
-                    <mat-checkbox value="Other" [(ngModel)]="categories.Other"
-                        (change)="categoryChange()">Other</mat-checkbox><br />
-                </mat-expansion-panel>
-
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            Brands
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <mat-checkbox value="Fruits" (change)="brandChange()" *ngFor="let brand of brandNames"
-                        [(ngModel)]="brand.value">{{brand.organization}}</mat-checkbox><br />
-                </mat-expansion-panel>
-
-            </mat-accordion>
-        </div>
-        <div class="right">
-            <router-outlet></router-outlet>
-        </div>
+    <div class="container">
+        <router-outlet></router-outlet>
     </div>
 
 </div>

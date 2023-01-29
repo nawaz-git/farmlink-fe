@@ -31,6 +31,8 @@ export class ProductsComponent {
 
   isCart = false;
   constructor(public api: HttpService, private router: Router) {
+    console.log('Hell');
+
     this.getProducts()
     this.getBrandNames()
   }
