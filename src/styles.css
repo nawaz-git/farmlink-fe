@@ -1,16 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
 :root {
-    --primary: black;
-    --secondary: black;
-    --third: black;
+    --primary: #48BE00;
+    ;
+    --secondary: #2A333A;
+    --third: #2F3941;
     --heading: black;
     --text: black;
     --text-light: white;
     --white: rgb(211, 211, 211);
 }
 
+
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Quicksand', sans-serif;
 }
 
 html,
@@ -22,5 +27,13 @@ body {
     margin: 0;
     font-family: Poppins, sans-serif;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

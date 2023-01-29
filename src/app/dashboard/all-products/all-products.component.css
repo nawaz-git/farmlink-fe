@@ -12,9 +12,22 @@
 }
 
 .product {
-    width: 200px;
-    background-color: rgb(48, 48, 48);
-    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+    gap: 12px;
+
+    width: 239.04px;
+    height: 289.52px;
+
+    /* White */
+
+    background: #FFFFFF;
+    /* S2 */
+
+    box-shadow: 0px 10px 16px -2px rgba(50, 50, 71, 0.06);
+    border-radius: 15px;
 }
 
 .box {

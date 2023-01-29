@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from 'src/app/http.service';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -43,6 +43,9 @@ export class ProductsComponent {
     }
     this.api.getProductsbyFilter(this.filter).subscribe((res: any) => {
       this.products = res
+      this.products.forEach((element: any) => {
+        element.current = ''
+      });
     })
   }
 
@@ -89,7 +92,6 @@ export class ProductsComponent {
 
 
   addtoCart(product: any) {
-
     let productData: any = {
       name: product.name,
       _id: product._id,
@@ -102,6 +104,7 @@ export class ProductsComponent {
 
     this.api.cart.next([...this.api.cart.value, productData])
     console.log(this.api.cart.value);
+
 
   }
 }

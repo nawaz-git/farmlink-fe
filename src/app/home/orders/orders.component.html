@@ -13,6 +13,8 @@
                     Schedule</mat-checkbox><br />
                 <mat-checkbox value="Completed" [(ngModel)]="status.Completed"
                     (change)="statusChange()">Completed</mat-checkbox><br />
+                <mat-checkbox value="Cancelled" [(ngModel)]="status.Cancelled"
+                    (change)="statusChange()">Cancelled</mat-checkbox><br />
             </mat-expansion-panel>
 
         </mat-accordion>
@@ -22,16 +24,24 @@
         <div class="products">
             <div class="order" *ngFor="let order of orders">
                 <div class="img">
-                    <img src="">
+                    <img src="../../../assets/rice.png">
                 </div>
                 <div class="data">
-                    {{order.productId.name}}<br />
-                    {{order.weight}} kg x {{order.quantity}}<br />
-                    ₹ {{order.price}}<br />
+                    <span class="id">
+                        # {{order.productId._id.split('').splice(8,16).join('') }}
+                    </span>
+                    <br />
+                    <span class="title">
+                        {{order.productId.name}}
+                    </span>
+                    <span class="weight"> {{order.weight}} kg x {{order.quantity}}</span>
+                    <br />
+                    <span class="price"> ₹ {{order.price}}</span>
                 </div>
                 <div class="action">
-                    <button>Cancel</button>
-                    <button>Confirm</button>
+                    <button (click)="confirm(order._id)">Picked Up</button>
+                    <br />
+                    <button (click)="cancel(order._id)">Cancel</button>
                 </div>
             </div>
         </div>

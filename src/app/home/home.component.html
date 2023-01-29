@@ -1,17 +1,21 @@
 <div class="main">
     <div class="header">
-        <div class="logo">
-            <h2><b>FarmLink</b></h2>
+        <div class="logo" (click)="home()">
+            <img src="../../assets/LOGO.svg" height="85">
         </div>
         <div class="search">
-            <input type="search">
+            <input type="search" placeholder="Search">
         </div>
-        <div class="cart" (click)="cart()">
-            <mat-icon>shopping_cart</mat-icon> {{api.cart.value?.length}}My Cart
+        <div class="right">
+            <div class="cart" (click)="cart()">
+                <span>{{api.cart.value?.length}}</span> <mat-icon>shopping_cart</mat-icon>&nbsp;&nbsp; My Cart
+            </div>
+            <div class=" account" (click)="myaccount()">
+                <mat-icon>person</mat-icon> &nbsp;&nbsp;My Account
+            </div>
+            <mat-icon (click)="logout()">logout</mat-icon> &nbsp;&nbsp;
         </div>
-        <div class=" account">
-            <mat-icon>person</mat-icon>My Account
-        </div>
+
     </div>
     <div class="container">
         <router-outlet></router-outlet>

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { HttpService } from 'src/app/http.service';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -8,7 +10,7 @@ import { HttpService } from 'src/app/http.service';
 })
 export class CartComponent {
   total = 0;
-  constructor(public api: HttpService) {
+  constructor(public api: HttpService, private router: Router) {
     this.calculate()
     console.log(this.api.cart.value);
   }
@@ -19,6 +21,11 @@ export class CartComponent {
     console.log(data);
     this.api.createOrder(data).subscribe((res: any) => {
       console.log(res);
+      Swal.fire('Order Placed', '', 'success')
+      setTimeout(() => {
+        Swal.close()
+        this.router.navigate(['/orders'])
+      }, 1000)
     })
   }
 
